@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/PauseMenu.gd" type="Script" id=1]
+[ext_resource path="res://nodes/button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/UI/OctoberCrow72.tres" type="DynamicFont" id=3]
+[ext_resource path="res://nodes/label.tscn" type="PackedScene" id=4]
+
+[node name="menu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.25098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button_resume" parent="." instance=ExtResource( 2 )]
+margin_left = 262.0
+margin_top = 250.0
+margin_right = 762.0
+margin_bottom = 304.0
+text = "resume"
+
+[node name="button_reload" parent="." instance=ExtResource( 2 )]
+margin_left = 262.0
+margin_top = 350.0
+margin_right = 762.0
+margin_bottom = 404.0
+text = "reload"
+
+[node name="button_main_menu" parent="." instance=ExtResource( 2 )]
+margin_left = 262.0
+margin_top = 450.0
+margin_right = 762.0
+margin_bottom = 504.0
+text = "main menu"
+
+[node name="label" parent="." instance=ExtResource( 4 )]
+margin_left = 350.0
+margin_top = 65.0
+margin_right = 687.0
+margin_bottom = 149.0
+custom_fonts/font = ExtResource( 3 )
+text = "paused"
+
+[connection signal="pressed" from="button_resume" to="." method="_unpause_game"]
+[connection signal="pressed" from="button_reload" to="." method="_reload"]
+[connection signal="pressed" from="button_main_menu" to="." method="_main_menu"]

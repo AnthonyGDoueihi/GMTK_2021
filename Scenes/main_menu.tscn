@@ -1,0 +1,88 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://nodes/Label.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/UI/OctoberCrow72.tres" type="DynamicFont" id=2]
+[ext_resource path="res://nodes/Button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=4]
+[ext_resource path="res://Assets/UI/OctoberCrow48.tres" type="DynamicFont" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.501961 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 0.501961 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.25098, 0.25098, 0.25098, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0, 0, 0.25098 )
+
+[node name="main_menu" type="Control"]
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" parent="." instance=ExtResource( 1 )]
+margin_left = 0.0
+margin_top = 88.0
+margin_right = 1024.0
+margin_bottom = 168.0
+custom_fonts/font = ExtResource( 2 )
+text = "Oogie Boogie Insects"
+
+[node name="play_button" parent="." instance=ExtResource( 3 )]
+margin_left = 262.0
+margin_top = 250.0
+margin_right = 762.0
+margin_bottom = 304.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "play"
+
+[node name="VolumeLabel" type="Label" parent="."]
+margin_left = 262.0
+margin_top = 340.0
+margin_right = 762.0
+margin_bottom = 394.0
+custom_fonts/font = ExtResource( 5 )
+text = "Volume"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VolumeSlider" type="HSlider" parent="."]
+margin_left = 262.0
+margin_top = 385.0
+margin_right = 762.0
+margin_bottom = 401.0
+min_value = -20.0
+max_value = 10.0
+step = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quit_button" parent="." instance=ExtResource( 3 )]
+margin_left = 262.0
+margin_top = 450.0
+margin_right = 762.0
+margin_bottom = 504.0
+text = "quit"
+
+[node name="timer" type="Timer" parent="quit_button"]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="pressed" from="play_button" to="." method="_play_game"]
+[connection signal="value_changed" from="VolumeSlider" to="." method="_on_volume_changed"]
+[connection signal="pressed" from="quit_button" to="." method="_quit_pressed"]
+[connection signal="timeout" from="quit_button/timer" to="." method="_quit_game"]
