@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Nodes/Units/T1_Good_Minion.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Nodes/Units/T3_Good_Lord_Mint.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Nodes/Units/T2_Good_Warrior.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Nodes/RTSCamera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Nodes/Units/T4_Good_Queen.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/rocks.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/PlayerController.gd" type="Script" id=7]
 [ext_resource path="res://Assets/BG_color.png" type="Texture" id=8]
 [ext_resource path="res://Assets/moon.png" type="Texture" id=9]
+[ext_resource path="res://Nodes/GameHelper.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Nodes/Units/T4_Bad_Queen.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1300, 15 )
@@ -18,10 +18,7 @@ extents = Vector2( 1300, 15 )
 [node name="Camera2D" parent="." groups=[
 "Camera",
 ] instance=ExtResource( 4 )]
-limit_left = -1300
-limit_top = -300
-limit_right = 1300
-limit_bottom = 300
+position = Vector2( -750, 0 )
 margin = 70
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -30,7 +27,9 @@ position = Vector2( 0, 285 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource( 1 )
 
-[node name="Allies" type="Node2D" parent="."]
+[node name="Allies" type="Node2D" parent="." groups=[
+"Player",
+]]
 script = ExtResource( 7 )
 
 [node name="T4_Good_Queen" parent="Allies" instance=ExtResource( 5 )]
@@ -39,14 +38,7 @@ position = Vector2( -1114.21, 179.208 )
 [node name="T3_Good_Lord_Mint" parent="Allies" instance=ExtResource( 2 )]
 position = Vector2( -834.782, 177.35 )
 
-[node name="T3_Good_Lord_Mint2" parent="Allies" instance=ExtResource( 2 )]
-position = Vector2( -420.532, 177.35 )
-
-[node name="T2_Good_Warrior" parent="Allies" instance=ExtResource( 3 )]
-position = Vector2( -681.745, 222.512 )
-
-[node name="T1_Good_Minion" parent="Allies" instance=ExtResource( 1 )]
-position = Vector2( -546.55, 238.265 )
+[node name="Helper" parent="Allies" instance=ExtResource( 10 )]
 
 [node name="Foreground" type="Node2D" parent="."]
 
@@ -65,3 +57,8 @@ texture = ExtResource( 8 )
 position = Vector2( 1.89905, 0.148865 )
 z_index = -1
 texture = ExtResource( 9 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="T4_Bad_Queen" parent="Enemies" instance=ExtResource( 11 )]
+position = Vector2( 1124.3, 162.635 )

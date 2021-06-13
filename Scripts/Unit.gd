@@ -17,10 +17,12 @@ var is_moving = false
 var was_moving = false
 
 var parent
+var forward 
 
 var health_bar
 
 func _ready():
+	forward = position + Vector2(100, 0)
 	animatedSprite = $AnimatedSprite
 	target_position = position
 	animatedSprite.play("Idle")
@@ -34,10 +36,12 @@ func get_input():
 			animatedSprite.flip_h = true
 			velocity.x += speed
 			is_moving = true
+			forward = position + Vector2(100, 0)
 		elif position.x > (target_position.x - distance_allowed):
 			animatedSprite.flip_h = false
 			velocity.x -= speed
 			is_moving = true
+			forward = position + Vector2(-100, 0)
 
 func _physics_process(delta):
 	get_input()

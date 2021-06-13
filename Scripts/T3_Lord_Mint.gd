@@ -7,8 +7,7 @@ export var unit_distance_allowed = 0
 export var unit_jump_speed = -1800
 
 var selected = false
-
-const DEFAULT_Y = 177.35
+var border
 
 func _ready():
 	speed = unit_speed
@@ -17,3 +16,11 @@ func _ready():
 	max_health = unit_health
 	attack = unit_attack
 	jump_speed = unit_jump_speed
+	border = $Control/border
+	deselect()
+
+func select():
+	border.show()
+
+func deselect():
+	border.hide()

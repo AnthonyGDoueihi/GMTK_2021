@@ -1,0 +1,117 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/GameHelper.gd" type="Script" id=1]
+
+[node name="Helper" type="CanvasLayer" groups=[
+"Helper",
+]]
+script = ExtResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 724.0
+margin_bottom = -374.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resources" type="ColorRect" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.709804 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BugJuiceLabel" type="Label" parent="Control"]
+margin_right = 145.0
+margin_bottom = 30.0
+rect_pivot_offset = Vector2( 38, 0 )
+text = "Bug Juice:"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BugJuice" type="Label" parent="Control"]
+margin_left = 155.0
+margin_right = 300.0
+margin_bottom = 30.0
+rect_pivot_offset = Vector2( 38, 0 )
+text = "0000"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Queen" type="Control" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 27.0
+margin_bottom = -1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BuildMinion" type="Button" parent="Control/Queen"]
+margin_left = 60.0
+margin_top = 10.0
+margin_right = 200.0
+margin_bottom = 30.0
+text = "Build Minion"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CostMinion" type="Label" parent="Control/Queen"]
+margin_left = 210.0
+margin_top = 10.0
+margin_right = 290.0
+margin_bottom = 30.0
+text = "100 BJ"
+valign = 1
+
+[node name="BuildWarrior" type="Button" parent="Control/Queen"]
+margin_left = 60.0
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 60.0
+text = "Build Warrior"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CostWarrior" type="Label" parent="Control/Queen"]
+margin_left = 210.0
+margin_top = 40.0
+margin_right = 290.0
+margin_bottom = 60.0
+text = "500 BJ"
+valign = 1
+
+[node name="BuildLordMint" type="Button" parent="Control/Queen"]
+margin_left = 60.0
+margin_top = 70.0
+margin_right = 200.0
+margin_bottom = 90.0
+text = "Build Lord Mind"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CostLordMint" type="Label" parent="Control/Queen"]
+margin_left = 210.0
+margin_top = 70.0
+margin_right = 290.0
+margin_bottom = 90.0
+text = "1000 BJ"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Control/Queen/BuildMinion" to="." method="build_minion"]
+[connection signal="pressed" from="Control/Queen/BuildWarrior" to="." method="build_warrior"]
+[connection signal="pressed" from="Control/Queen/BuildLordMint" to="." method="build_lord_mint"]
