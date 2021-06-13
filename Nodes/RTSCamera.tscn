@@ -118,5 +118,6 @@ text = "main menu"
 
 [connection signal="timeout" from="Timer1" to="." method="second_song"]
 [connection signal="timeout" from="Timer2" to="." method="third_song"]
+[connection signal="pressed" from="Victory/button_main_menu" to="." method="_main_menu"]
 [connection signal="pressed" from="Victory/button_main_menu" to="menu" method="_main_menu"]
 [connection signal="pressed" from="Defeat/button_main_menu" to="." method="_main_menu"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Game-Jam-June-2021-Defeat.ogg-89e3fe0cad175dc482e13e8093ddaea2.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/Game-Jam-June-2021-Defeat.ogg"
+dest_files=[ "res://.import/Game-Jam-June-2021-Defeat.ogg-89e3fe0cad175dc482e13e8093ddaea2.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

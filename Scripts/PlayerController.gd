@@ -12,6 +12,7 @@ var minions = []
 var queen
 var camera
 var resources = 100
+var game_over = false
 
 var helper
 var keycodes = [49, 50, 51, 52, 53, 54, 55, 56, 57] 
@@ -44,7 +45,8 @@ func _process(delta):
 	check_dead()
 	
 func check_dead():
-	if queen.is_dead:
+	if queen.is_dead and not game_over:
+		game_over = true
 		camera.defeat()
 		return 
 	for w in warriors:

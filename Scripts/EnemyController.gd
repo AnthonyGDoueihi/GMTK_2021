@@ -22,7 +22,7 @@ enum {
 }
 
 var priority_int
-
+var game_over = false
 func _ready():
 	camera = get_tree().get_nodes_in_group("Camera")[0]
 	timer = $Timer
@@ -34,7 +34,7 @@ func _ready():
 	pick_priority()
 
 func _process(delta):
-	resources += lord_mints.size() * 2 * delta
+	resources += lord_mints.size() * 3 * delta
 	if priority == BUILD:
 		if lord_mints.size() < 2:
 			build_lord_mint()
@@ -59,7 +59,8 @@ func _process(delta):
 	check_dead()
 	
 func check_dead():
-	if queen.is_dead:
+	if queen.is_dead and not game_over:
+		game_over = true
 		camera.victory()
 		return 
 	for w in warriors:
