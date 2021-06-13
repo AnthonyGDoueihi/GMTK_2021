@@ -13,7 +13,7 @@ extents = Vector2( 35.5, 30 )
 ]]
 scale = Vector2( 1.5, 1.5 )
 collision_layer = 4
-collision_mask = 3
+collision_mask = 11
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -39,7 +39,6 @@ scale = Vector2( 0.210307, 0.501966 )
 [node name="HealthBar" type="TextureProgress" parent="Control/HealthContainer"]
 margin_right = 248.0
 margin_bottom = 40.0
-min_value = 100.0
 value = 100.0
 texture_under = ExtResource( 4 )
 texture_progress = ExtResource( 3 )

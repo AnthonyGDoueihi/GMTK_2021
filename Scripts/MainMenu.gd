@@ -2,7 +2,7 @@ extends Control
 
 var volume_slider
 
-var music = preload("res://Assets/Music/Game_Jam_June_2021-Menu.wav")
+var music = preload("res://Assets/Music/Game-Jam-June-2021-Menu.ogg")
 
 
 func _play_game():

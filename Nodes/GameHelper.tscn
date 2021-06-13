@@ -11,7 +11,7 @@ script = ExtResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 724.0
-margin_bottom = -374.0
+margin_bottom = -470.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -24,18 +24,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BugJuiceLabel" type="Label" parent="Control"]
+[node name="QueensEggsLabel" type="Label" parent="Control"]
 margin_right = 145.0
 margin_bottom = 30.0
 rect_pivot_offset = Vector2( 38, 0 )
-text = "Bug Juice:"
+text = "Queens Eggs:"
 align = 2
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BugJuice" type="Label" parent="Control"]
+[node name="QueensEggs" type="Label" parent="Control"]
 margin_left = 155.0
 margin_right = 300.0
 margin_bottom = 30.0
@@ -70,8 +70,11 @@ margin_left = 210.0
 margin_top = 10.0
 margin_right = 290.0
 margin_bottom = 30.0
-text = "100 BJ"
+text = "10 Eggs"
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="BuildWarrior" type="Button" parent="Control/Queen"]
 margin_left = 60.0
@@ -88,7 +91,7 @@ margin_left = 210.0
 margin_top = 40.0
 margin_right = 290.0
 margin_bottom = 60.0
-text = "500 BJ"
+text = "50 Eggs"
 valign = 1
 
 [node name="BuildLordMint" type="Button" parent="Control/Queen"]
@@ -106,7 +109,7 @@ margin_left = 210.0
 margin_top = 70.0
 margin_right = 290.0
 margin_bottom = 90.0
-text = "1000 BJ"
+text = "100 Eggs"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false

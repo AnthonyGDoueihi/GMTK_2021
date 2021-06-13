@@ -2,26 +2,21 @@ extends KinematicBody2D
 
 var health = 1000
 var max_health = 1000
-var selected = false
-
+export var is_player = false
+var is_dead = false
 var animatedSprite
 var border
 
-const DEFAULT_Y = 179.208
+var health_bar
 
 func _ready():
 	animatedSprite = $AnimatedSprite
 	animatedSprite.play("Idle")
-	border = $Control/border
-	select()
+	health_bar = $Control/HealthContainer/HealthBar
 
 func take_damage(damage):
 	health -= damage
+	health_bar.max_value = max_health
+	health_bar.value = health
 	if health <= 0:
-		queue_free()
-
-func select():
-	border.show()
-
-func deselect():
-	border.hide()
+		is_dead = true

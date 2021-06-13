@@ -1,10 +1,11 @@
 extends "res://Scripts/Unit.gd"
 
-export var unit_speed = 100
-export var unit_health = 100
-export var unit_attack = 100
-export var unit_distance_allowed = 100
+export var unit_speed = 200
+export var unit_health = 150
+export var unit_attack = 50
+export var unit_distance_allowed = 200
 export var unit_jump_speed = -1800
+export var unit_is_player = false
 var lord_mints = []
 
 func _ready():
@@ -14,6 +15,7 @@ func _ready():
 	max_health = unit_health
 	attack = unit_attack
 	jump_speed = unit_jump_speed
+	is_player = unit_is_player
 
 func _process(delta):
 	if not is_moving:
@@ -28,4 +30,8 @@ func find_new_target():
 			closest_mint = mint
 			closest_mint_dist = new_dist
 	
-	target_position = closest_mint.forward
+	randomize()
+	if closest_mint:
+		target_position = closest_mint.forward + Vector2(rand_range(-unit_distance_allowed, unit_distance_allowed), 0)
+	else:
+		target_position = Vector2(rand_range(-900, 900), 0)

@@ -15,7 +15,7 @@ func build_lord_mint():
 	player.build_lord_mint()
 
 func _process(delta):
-	$Control/BugJuice.text = String(round(player.resources))
+	$Control/QueensEggs.text = String(round(player.resources))
 
 
 
