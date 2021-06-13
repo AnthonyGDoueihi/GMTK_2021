@@ -15,7 +15,6 @@ func _pause_game():
 	self.show()
 
 func _unpause_game():
-	print('wow')
 	get_tree().paused = false
 	self.hide()
 

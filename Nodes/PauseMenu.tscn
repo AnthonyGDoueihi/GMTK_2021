@@ -34,7 +34,7 @@ margin_left = 262.0
 margin_top = 350.0
 margin_right = 762.0
 margin_bottom = 404.0
-text = "reload"
+text = "Restart"
 
 [node name="button_main_menu" parent="." instance=ExtResource( 2 )]
 margin_left = 262.0

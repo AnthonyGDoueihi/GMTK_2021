@@ -71,18 +71,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="quit_button" parent="." instance=ExtResource( 3 )]
-margin_left = 262.0
-margin_top = 450.0
-margin_right = 762.0
-margin_bottom = 504.0
-text = "quit"
-
-[node name="timer" type="Timer" parent="quit_button"]
-wait_time = 0.5
-one_shot = true
-
 [connection signal="pressed" from="play_button" to="." method="_play_game"]
 [connection signal="value_changed" from="VolumeSlider" to="." method="_on_volume_changed"]
-[connection signal="pressed" from="quit_button" to="." method="_quit_pressed"]
-[connection signal="timeout" from="quit_button/timer" to="." method="_quit_game"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Nodes/Units/SpriteSheets/T4_Good_Queen.tres" type="SpriteFrames" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 112.95, 60.5 )
+
+[node name="T4_Good_Queen" type="KinematicBody2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = ExtResource( 1 )
+animation = "Idle"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
