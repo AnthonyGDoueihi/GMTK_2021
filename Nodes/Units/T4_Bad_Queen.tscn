@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Nodes/Units/SpriteSheets/T4_Bad_Queen.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://Assets/UI/energy_bar_fill.png" type="Texture" id=2]
+[ext_resource path="res://Assets/UI/energy_bar_bg.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 112.95, 60.5 )
 
-[node name="T4_Bad_Queen" type="KinematicBody2D"]
+[node name="T4_Bad_Queen" type="KinematicBody2D" groups=[
+"EvilQueen",
+]]
+scale = Vector2( 1.5, 1.5 )
+collision_mask = 7
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
@@ -13,3 +19,29 @@ animation = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+margin_left = -31.0
+margin_top = -68.0
+margin_right = 31.0
+margin_bottom = 60.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthContainer" type="Node2D" parent="Control"]
+position = Vector2( -0.235718, -2.82843 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="HealthBar" type="TextureProgress" parent="Control/HealthContainer"]
+margin_right = 248.0
+margin_bottom = 40.0
+min_value = 100.0
+value = 100.0
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 2 )
+tint_under = Color( 0.176471, 0.172549, 0.172549, 1 )
+tint_progress = Color( 1, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

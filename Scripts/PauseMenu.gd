@@ -1,5 +1,6 @@
 extends Control
 
+
 func _ready():
 	_unpause_game()
 
@@ -18,10 +19,6 @@ func _unpause_game():
 	get_tree().paused = false
 	self.hide()
 
-func _reload():
-	_unpause_game()
-	SceneTransitions._reload_scene()
-
 func _main_menu():
 	_unpause_game()
-	SceneTransitions._fade_start("main_menu")
+	SceneTransitions._fade_start(false)

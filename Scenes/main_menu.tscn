@@ -33,7 +33,7 @@ margin_top = 88.0
 margin_right = 1024.0
 margin_bottom = 168.0
 custom_fonts/font = ExtResource( 2 )
-text = "Oogie Boogie Insects"
+text = "Hail The Queen"
 
 [node name="play_button" parent="." instance=ExtResource( 3 )]
 margin_left = 262.0
@@ -64,7 +64,7 @@ margin_left = 262.0
 margin_top = 385.0
 margin_right = 762.0
 margin_bottom = 401.0
-min_value = -20.0
+min_value = -24.0
 max_value = 10.0
 step = 0.5
 __meta__ = {

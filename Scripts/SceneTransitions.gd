@@ -2,6 +2,9 @@ extends CanvasLayer
 
 var path = "test"
 
+var menu = preload("res://scenes/main_menu.tscn")
+var game = preload("res://scenes/test.tscn")
+
 var duration = 0.5
 var rect
 var tween
@@ -11,17 +14,12 @@ func _ready():
 	rect = $rect
 	tween = $tween
 	timer = $timer
-	print(timer)
 	timer.wait_time = duration
 
-func _fade_start(var scene_path):
-	path = "res://scenes/" + scene_path + ".tscn"
-	var file = File.new()
-	if file.file_exists(path):
-		_fade_out()
-		timer.start()
-	else:
-		_reload_scene()
+func _fade_start(is_game):
+	path = game if is_game else menu 
+	_fade_out()
+	timer.start()
 
 func _fade_in():
 	tween.interpolate_property(rect, "color",
@@ -35,12 +33,6 @@ func _fade_out():
 	Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
 
-func _reload_scene():
-	var current_scene = get_tree().get_current_scene().get_name()
-	path = "res://scenes/" + current_scene + ".tscn"
-	_fade_out()
-	timer.start()
-
 func _change_scene():
-	get_tree().change_scene(path)
+	get_tree().change_scene_to(path)
 	_fade_in()

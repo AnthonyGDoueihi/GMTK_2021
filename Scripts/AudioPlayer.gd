@@ -2,6 +2,7 @@ extends AudioStreamPlayer
 
 var tween
 var volume = 0.0
+var stopped = false
 
 func _ready():
 	volume_db = -20.0
@@ -23,5 +24,12 @@ func _stop_sound():
 	tween.start()
 
 func change_volume(new_volume):
-	volume = new_volume
-	volume_db = new_volume
+	if new_volume < -23:
+		stop()
+		stopped = true
+	else:
+		volume = new_volume
+		volume_db = new_volume
+		if stopped:
+			play()
+			stopped = false
